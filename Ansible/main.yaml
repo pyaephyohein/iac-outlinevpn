@@ -1,0 +1,5 @@
+- hosts: outline
+  become: true
+  roles:
+  - {role: apt, tags: 'apt'}
+  - {role: outline, tags: 'outline'}

@@ -1,0 +1,9 @@
+- name: timesync
+  become_user: root
+  shell: timedatectl set-timezone Asia/Yangon
+- name: apt-get update
+  become_user: root
+  apt:
+    name: "*"
+    state: latest
+    update_cache: yes
