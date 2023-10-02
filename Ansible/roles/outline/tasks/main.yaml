@@ -9,15 +9,15 @@
   apt:
     name: docker.io
     state: latest
-# - name: Install Outline
-#   become_user: root
-#   shell: bash -c /tmp/install_server.sh > output_outline >> /tmp/outline_output
-#   register: my_output
+- name: Install Outline
+  become_user: root
+  shell: bash -c /tmp/install_server.sh > output_outline >> /tmp/outline_output
+  register: my_output
 
 - name: copy to local
   fetch:
     src: /tmp/outline_output
-    dest: /tmp/outline_output
+    dest: ./outline_output
 
 
 - debug: var=my_output.stdout_line
